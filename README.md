@@ -36,7 +36,7 @@ Plantilla con el Modelo Vista Controlador
 #### **Instalar composer**
 
 #### **Git clone** (recomendada)
-Clonar el repositorio en [github](#"https://github.com/RamEduard/simple-php-mvc"). Y luego entrar en la carpeta clonada a través del terminal y luego ejecuta **composer install** para instalar todas las dependencias del projecto en la carpeta `vendor`.
+Clonar el repositorio en [github](#"https://github.com/simple-php-mvc/simple-php-mvc"). Y luego entrar en la carpeta clonada a través del terminal y luego ejecuta **composer install** para instalar todas las dependencias del projecto en la carpeta `vendor`.
 
 > **Nota:** esta es la forma recomendada de instalación para obtener la aplicación configurada.
 
@@ -48,14 +48,14 @@ Clonar el repositorio en [github](#"https://github.com/RamEduard/simple-php-mvc"
 ```json
 {
    "require": {
-      "rameduard/simple-php-mvc": '1.6'
+      "simple-php-mvc/simple-php-mvc": '1.6'
    }
 }
 ```
 -- Abre una terminal de tu sistema operativo y ejecuta en la carpeta del proyecto **composer install** y espera a que se instale Simple PHP MVC.
 
 #### **Composer create-project**
-Otra forma de instalar con composer es ejecutando el comando **composer install rameduard/simple-php-mvc** en la terminal de tu sistema operativo.
+Otra forma de instalar con composer es ejecutando el comando **composer install simple-php-mvc/simple-php-mvc** en la terminal de tu sistema operativo.
 
 ### <a name='configuracion'></a> Configuración
 > Asegúrate de que la carpeta raíz del sistema tenga los permisos apropiados con `sudo chmod 755 -R`.
