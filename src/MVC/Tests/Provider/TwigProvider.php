@@ -15,10 +15,10 @@ class TwigProvider extends Provider
     /**
      * Bootstrap of the Provider
      * @access public
-     * @param MVC $app
+     * @param MVC $mvc
      * @return void
      */
-    public function boot(MVC $app) { }
+    public function boot(MVC $mvc) { }
 
     /**
      * Register the properties of the Twig Framework Provider
@@ -39,6 +39,11 @@ class TwigProvider extends Provider
         
         $mvc->setCvpp('twig.loader.filesystem', new \Twig_Loader_Filesystem($options['path']));
         $mvc->setCvpp('twig.loader.array', new \Twig_Loader_Array($options['templates_path']));
+        
+        # Register templates path modules
+        foreach ($mvc->getModules() as $module) {
+            $module->registerTemplatesPathTwig($mvc);
+        }
         
         $mvc->setCvpp('twig.loader', new \Twig_Loader_Chain(array(
             $mvc->getCvpp('twig.loader.array'),

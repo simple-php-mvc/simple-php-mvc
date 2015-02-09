@@ -3,8 +3,9 @@
 namespace MVC\Module;
 
 use MVC\File\Explorer;
-use Symfony\Component\Console\Application;
+use MVC\MVC;
 use MVC\Injection\Container;
+use Symfony\Component\Console\Application;
 
 /**
  * Description of Module
@@ -151,4 +152,18 @@ abstract class Module implements ModuleInterface
             }
         }
     }
+    
+    /**
+     * Register Templates Path Twig
+     * 
+     * @param MVC $mvc
+     */
+    public function registerTemplatesPathTwig(MVC $mvc)
+    {
+        $viewsPath = $this->getPath() . '/Resources/views';
+        if (file_exists(dirname($viewsPath)) && file_exists($viewsPath)) {
+            $mvc->getCvpp('twig.loader.filesystem')->addPath($viewsPath);
+        }
+    }
+    
 }
