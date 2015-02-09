@@ -1,0 +1,24 @@
+[{
+    "method": ["GET", "POST"],
+    "pattern": "/foo",
+    "action": "MVC\\Tests\\TestModule\\Controller\\FooController::indexAction",
+    "name": "foo_index"
+},
+{
+    "method": ["GET", "POST"],
+    "pattern": "/foo/redirect",
+    "action": "MVC\\Tests\\TestModule\\Controller\\FooController::redirectAction",
+    "name": "foo_redirect"
+},
+{
+    "method": ["GET", "POST"],
+    "pattern": "/foo/redirected",
+    "action": "MVC\\Tests\\TestModule\\Controller\\FooController::redirectedAction",
+    "name": "foo_redirected"
+},
+{
+    "method": ["GET", "POST", "AJAX"],
+    "pattern": "/user",
+    "action": "MVC\\Tests\\TestModule\\Controller\\UserController::index",
+    "name": "user_index"
+}]

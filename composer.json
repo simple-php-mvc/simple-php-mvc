@@ -1,0 +1,21 @@
+{
+  "name":"rameduard/simple-php-mvc",
+  "type": "library",
+  "description": "Simple PHP-MVC",
+  "license": "GPL-2.0",
+  "keywords": ["framework"],
+  "authors": [
+    {
+      "name": "Ramón Serrano",
+      "email": "ramon.calle.88@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "doctrine/orm": "2.3.6",
+    "doctrine/dbal": "2.3.5",
+    "monolog/monolog": ">=1.10.0",
+    "symfony/console": "2.*",
+    "twig/twig": ">=1.0"
+  }
+}
