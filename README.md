@@ -24,7 +24,7 @@ Clonar el repositorio en [github](#"https://github.com/simple-php-mvc/simple-php
 ```json
 {
    "require": {
-      "simple-php-mvc/simple-php-mvc": '1.6.2'
+      "simple-php-mvc/simple-php-mvc": "1.6.2"
    }
 }
 ```
