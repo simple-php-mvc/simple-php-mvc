@@ -175,6 +175,21 @@ class Container
     {
         return $this->appDir;
     }
+
+    /**
+     * Get Module
+     * 
+     * @param string $name
+     * @return Module
+     * @throws \LogicException
+     */
+    public function getModule($name)
+    {
+        if (!isset($this->modules[$name])) {
+            throw new \LogicException(sprintf('The module "%s" don\'t exists.', $name));
+        }
+        return $this->modules[$name];
+    }
     
     /**
      * Get Modules
@@ -184,31 +199,6 @@ class Container
     public function getModules()
     {
         return $this->modules;
-    }
-    
-    /**
-     * Set setting from name
-     * 
-     * @param string $name
-     * @return mixed
-     * @throws \LogicException
-     */
-    public function getSetting($name)
-    {
-        if (!isset($this->settings[$name])) {
-            throw new \LogicException(sprintf('The setting "%s" don\'t exists.', $name));
-        }
-        return $this->settings[$name];
-    }
-
-    /**
-     * Get settings
-     * 
-     * @return array
-     */
-    public function getSettings()
-    {
-        return $this->settings;
     }
 
     /**
@@ -290,6 +280,31 @@ class Container
     public function getRoutes()
     {
         return $this->routes;
+    }
+
+    /**
+     * Set setting from name
+     * 
+     * @param string $name
+     * @return mixed
+     * @throws \LogicException
+     */
+    public function getSetting($name)
+    {
+        if (!isset($this->settings[$name])) {
+            throw new \LogicException(sprintf('The setting "%s" don\'t exists.', $name));
+        }
+        return $this->settings[$name];
+    }
+
+    /**
+     * Get settings
+     * 
+     * @return array
+     */
+    public function getSettings()
+    {
+        return $this->settings;
     }
 
     /**

@@ -197,6 +197,16 @@ class MVC implements MVCInterface
         
         return self::$instance;
     }
+
+    /**
+     * Get registered module
+     * 
+     * @return Module Registered module
+     */
+    public function getModule($name)
+    {
+        return $this->container->getModule($name);
+    }
     
     /**
      * Get registered modules
@@ -208,6 +218,16 @@ class MVC implements MVCInterface
         return $this->container->getModules();
     }
     
+    /**
+     * Get registered provider
+     * 
+     * @return Provider Registered provider
+     */
+    public function getProvider($name)
+    {
+        return $this->container->getProvider($name);
+    }
+
     /**
      * Get registered providers
      * 
