@@ -1,6 +1,6 @@
 # Simple PHP-MVC
 
-Plantilla con el Modelo Vista Controlador
+Plantilla con el Modelo Vista Controlador - Version 1.6.3
 
 ### Tabla de Contenidos
 - [Instalación](#instalacion)
@@ -24,7 +24,7 @@ Clonar el repositorio en [github](#"https://github.com/simple-php-mvc/simple-php
 ```json
 {
    "require": {
-      "simple-php-mvc/simple-php-mvc": "1.6.2"
+      "simple-php-mvc/simple-php-mvc": "1.6.3"
    }
 }
 ```
