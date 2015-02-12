@@ -386,11 +386,12 @@ class HttpRequest
     /**
      * Get parsed url
      * 
+     * @param string $url Url to parse
      * @return array Parsed Url
      */
-    protected function parseUrl()
+    protected function parseUrl($url = "")
     {
-        $parsed = parse_url($this->_env["REQUEST_URI"]);
+        $parsed = ($url) ? parse_url($url) : parse_url($this->_env['REQUEST_URI']);
         
         if (preg_match('/[a-zA-Z0-9_]+\.php/i', $parsed['path'], $matches)) {
             $parsed['path'] = preg_replace("/$matches[0]/", '/', $parsed['path']);
