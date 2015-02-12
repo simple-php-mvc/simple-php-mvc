@@ -610,6 +610,19 @@ class MVC implements MVCInterface
     }
 
     /**
+     * Return the url for the path given
+     * 
+     * @param string $path      Path url path or Route name if type_name is not uri
+     * @param string $type_name Url type uri|route
+     * @return string
+     */
+    public function urlFor($path, $type_name = 'uri')
+    {
+        return ('uri' === $type_name) ? $this->container->getRequest()->getRootUri() . $path
+                                 : $this->container->getRoute($path)->getPatternUri();
+    }
+    
+    /**
      * Returns the URL for the name or route
      * 
      * @access public
@@ -619,18 +632,7 @@ class MVC implements MVCInterface
      * @param boolean $relative If is true is a relative URL, else a absolute url
      * @return string
      */
-    public function generateUrl($name, array $params = array(), $relative = false)
-    {
-//        if (!$this->container->hasRoute($name)) {
-//            return '';
-//        }
-//        if ($relative) {
-//            return $this->container->getRoute($name)->getPatternUri();
-//        } else {
-//            $rootUri = $this->container->getRequest()->getRootUri();
-//            return isset($routes[$name]) ? $rootUri . $routes[$name][1] : '';
-//        }
-    }
+    public function generateUrl($name, array $params = array(), $relative = false) { }
 
     /**
      * Not Found Handler
