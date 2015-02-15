@@ -616,10 +616,16 @@ class MVC implements MVCInterface
      * @param string $type_name Url type uri|route
      * @return string
      */
-    public function urlFor($path, $type_name = 'uri')
+    public function urlFor($path, $type_name = 'asset')
     {
-        return ('uri' === $type_name) ? $this->container->getRequest()->getRootUri() . $path
-                                 : $this->container->getRequest()->getRootUri() . $this->container->getRoute($path)->getPatternUri();
+        switch ($type_name) {
+            case 'asset':
+                return $this->container->getRequest()->getRootUri() . $path;
+                break;
+            case 'route':
+                return $this->container->getRequest()->getRootUri($this->getSetting('debug')) . $this->container->getRoute($path)->getPatternUri();
+                break;
+        }
     }
     
     /**

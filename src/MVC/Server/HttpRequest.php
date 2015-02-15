@@ -212,9 +212,13 @@ class HttpRequest
      * @access public
      * @return string
      */
-    public function getRootUri()
+    public function getRootUri($dev = false)
     {
-        return $this->__get('SCRIPT_NAME');
+        if ($dev) {
+            return $this->__get('SCRIPT_NAME');
+        } else {
+            return dirname($this->__get('SCRIPT_NAME'));
+        }
     }
     
     /**

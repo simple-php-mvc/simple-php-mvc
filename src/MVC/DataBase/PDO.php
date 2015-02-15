@@ -45,10 +45,18 @@ class PDO
      * @param string $user
      * @param string $passwd
      * @param mixed $driverOptions
+     * @throws \PDOException
+     * @throws \Exception
      */
     function __construct($dsn, $user = null, $passwd = null, $driverOptions = null)
     {
-        $this->_pdo = new \PDO($dsn, $user, $passwd, $driverOptions);
+        try {
+            $this->_pdo = new \PDO($dsn, $user, $passwd, $driverOptions);
+        } catch (\PDOException $pdoex) {
+            throw $pdoex;
+        } catch (\Exception $ex) {
+            throw $ex;
+        }
         $this->numExecutes = 0;
         $this->numStatements = 0;
     }
