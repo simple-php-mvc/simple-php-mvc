@@ -82,7 +82,7 @@ class Explorer extends \FilesystemIterator
      */
     public function mkdir($path, $mode = 0777)
     {
-        return (is_dir($path) && !file_exists($path)) ? @mkdir($path, $mode) : false;
+        return @mkdir($path, $mode);
     }
     
     /**
