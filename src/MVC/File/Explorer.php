@@ -33,6 +33,28 @@ class Explorer extends \FilesystemIterator
     }
     
     /**
+     * Copy directory to destiny directory
+     * 
+     * @param string $sourceDir
+     * @param string $destinyDir
+     */
+    public function copy($sourceDir, $destinyDir)
+    {
+        $dir = opendir($sourceDir);
+        $this->mkdir($destinyDir);
+        while (false !== ( $file = readdir($dir))) {
+            if (( $file != '.' ) && ( $file != '..' )) {
+                if (is_dir($sourceDir . '/' . $file)) {
+                    $this->copy($sourceDir . '/' . $file, $destinyDir . '/' . $file);
+                } else {
+                    copy($sourceDir . '/' . $file, $destinyDir . '/' . $file);
+                }
+            }
+        }
+        closedir($dir);
+    }
+    
+    /**
      * Get files
      * 
      * @return Explorer
@@ -49,6 +71,33 @@ class Explorer extends \FilesystemIterator
             $this->next();
         }
         return $files;
+    }
+    
+    /**
+     * Make dir
+     * 
+     * @param string $path
+     * @param int $mode
+     * @return boolean
+     */
+    public function mkdir($path, $mode = 0777)
+    {
+        return (is_dir($path) && !file_exists($path)) ? @mkdir($path, $mode) : false;
+    }
+    
+    /**
+     * Remove dir
+     * 
+     * @param string $path
+     * @return boolean
+     */
+    public function rmdir($path)
+    {
+        $files = array_diff(scandir($path), array('.', '..'));
+        foreach ($files as $file) {
+            (is_dir("$path/$file")) ? $this->rmdir("$path/$file") : unlink("$path/$file");
+        }
+        return rmdir($path);
     }
     
     /**
