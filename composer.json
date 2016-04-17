@@ -12,10 +12,10 @@
   ],
   "require": {
     "php": ">=5.3.3",
-    "doctrine/orm": "2.3.6",
-    "doctrine/dbal": "2.3.5",
+    "doctrine/orm": ">=2.3.6",
+    "doctrine/dbal": ">=2.3.5",
     "monolog/monolog": ">=1.10.0",
-    "symfony/console": "2.*",
+    "symfony/console": ">=2.*",
     "twig/twig": ">=1.0"
   },
   "autoload": {
